@@ -1,4 +1,4 @@
-sharemovie
+[sharemovie]
 
 ## サイト概要
 ### サイトテーマ
