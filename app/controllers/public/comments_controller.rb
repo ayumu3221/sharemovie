@@ -1,19 +1,19 @@
 class Public::CommentsController < ApplicationController
   def create
-    book = Book.find(params[:book_id])
-    @comment = current_user.book_comments.new(book_comment_params)
-    @comment.book_id = book.id
+    list = list.find(params[:list_id])
+    @comment = current_user.omments.new(comment_params)
+    @comment.list_id = list.id
     @comment.save
   end
 
   def destroy
-    @comment = BookComment.find_by(id: params[:id], book_id: params[:book_id])
+    @comment = Comment.find_by(id: params[:id], list_id: params[:list_id])
     @comment.destroy
   end
 
   private
-  def book_comment_params
-    params.require(:book_comment).permit(:comment)
+  def comment_params
+    params.require(:comment).permit(:comment)
   end
 end
 

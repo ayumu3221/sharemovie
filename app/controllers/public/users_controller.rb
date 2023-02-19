@@ -4,13 +4,13 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @books = @user.books
-    @book = Book.new
+    @lists = @user.lists
+    @list = List.new
   end
 
   def index
     @users = User.all
-    @book = Book.new
+    @list = List.new
   end
 
   def edit
@@ -27,7 +27,7 @@ class Public::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image)
+    params.require(:user).permit(:name, :introduction)
   end
 
   def ensure_correct_user
