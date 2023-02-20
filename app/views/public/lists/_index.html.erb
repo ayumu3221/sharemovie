@@ -1,0 +1,22 @@
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% lists.each do |list| %>
+      <tr>
+        <td><%= link_to list.title,list, class: "list_#{list.id}" %></td>
+        <td><%= list.body %></td>
+        <td class=<%= "favorite-" + list.id.to_s %> >
+            <%= render "favorites/btn", list: list %>
+        </td>
+        <td><%= render "comments/counter", list: list %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

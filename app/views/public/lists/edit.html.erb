@@ -1,0 +1,9 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  		<h1>Editing Movie</h1>
+  		<%= render 'form', list: @list %>
+  		<%= link_to 'Show', @list, class: "list_#{@list.id}" %> |
+  		<%= link_to 'Back', lists_path, class: "back" %>
+  </div>
+</div>

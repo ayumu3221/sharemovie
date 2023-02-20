@@ -8,7 +8,7 @@ class Public::SearchesController < ApplicationController
 		if @model == 'user'
 			@records = User.search_for(@content, @method)
 		else
-			@records = LI.search_for(@content, @method)
+			@records = Li.search_for(@content, @method)
 		end
 	end
 end
