@@ -8,6 +8,7 @@ class Public::ListsController < ApplicationController
   end
 
   def index
+    @lists = List.all
     @list = List.new
   end
 
