@@ -1,2 +1,38 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<h4 class="table-active text-center px-3">
+  <%= @user.name %>さんの会員詳細
+</h4>
+<table class="table table-borderless">
+  <thead>
+    <tr>
+      <th>
+      	<strong>ユーザーネーム</strong>
+      </th>
+      <th><%= @user.name %></th>
+    </tr>
+    <tr>
+      <th>
+      	<strong>メールアドレス</strong>
+      </th>
+      <th><%= @user.email %></th>
+    </tr>
+    <tr>
+      <th>
+      	<strong>ステータス</strong>
+      </th>
+      <th>
+        <% if @user.status === false %>
+          <strong class="text-success">有効</strong>
+        <% else %>
+          <strong class="text-danger">退会済み</strong>
+        <% end %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+	<tr>
+	  <% if admin_signed_in? %>
+	    <td><%= link_to "編集", edit_admin_user_path(@user), class: "btn btn-success" %></td>
+	  <% end %>
+	</tr>
+  </tbody>
+</table>

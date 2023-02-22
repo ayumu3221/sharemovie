@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
-      <h1>welcome to <i class="fa-solid fa-film"></i><strong>sharemovie</strong>  !!</h1>
-      <p>In  <i class="fa-solid fa-film"></i><strong>Sharemovie</strong>, </p>
+      <h1>welcome to <strong>sharemovie</strong>  !!</h1>
+      <p>In <strong>Sharemovie</strong>, </p>
       <p>you can share and exchange  your opinions , inpressions , and emotions</p>
       <p> about various movies!</p>
       <div class="btn-wrapper col-10 mx-auto">
@@ -13,7 +13,7 @@
           <%= link_to 'Sign Up',new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
         </div>
         <div class="row">
-          <%= link_to "ゲストログイン(閲覧用)", users_guest_sign_in_path, method: :post, class: "btn btn-secondary btn-block mb-3" %>  
+          <%= link_to "ゲストログイン(閲覧用)", homes_guest_sign_in_path, method: :post, class: "btn btn-secondary btn-block mb-3" %>  
         </div>
       </div>
     </div>

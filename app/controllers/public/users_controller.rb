@@ -1,14 +1,9 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
-  before_action :ensure_guest_user, only: [:edit]
+  #before_action :ensure_guest_user, only: [:edit]
   
-   # guestメソッドを使用し、ゲストユーザーをログイン状態にする
-  def guest_sign_in
-    user = User.guest
-    sign_in user
-    redirect_to user_path(user), notice: "ゲストユーザーでログインしました！"
-  end  
+
 
   def show
     @user = User.find(params[:id])
@@ -30,6 +25,12 @@ class Public::UsersController < ApplicationController
     else
       render "edit"
     end
+  end
+  
+  def favorites
+    @user = User.find(params[:id])
+    favorites= Favorite.where(user_id: @user.id).pluck(:li_id)
+    @favorite_lists = List.find(favorites)
   end
 
   private
