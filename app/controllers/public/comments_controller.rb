@@ -1,7 +1,7 @@
 class Public::CommentsController < ApplicationController
   def create
-    list = list.find(params[:list_id])
-    @comment = current_user.omments.new(comment_params)
+    list = List.find(params[:list_id])
+    @comment = current_user.comments.new(comment_params)
     @comment.list_id = list.id
     @comment.save
   end
