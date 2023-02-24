@@ -1,6 +1,6 @@
 class ListComment < ApplicationRecord
     belongs_to :user
-    belongs_to :book
+    belongs_to :list
     
     validates :comment, presence: true
 end

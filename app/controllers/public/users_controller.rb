@@ -29,7 +29,7 @@ class Public::UsersController < ApplicationController
   
   def favorites
     @user = User.find(params[:id])
-    favorites= Favorite.where(user_id: @user.id).pluck(:li_id)
+    favorites= Favorite.where(user_id: @user.id).pluck(:list_id)
     @favorite_lists = List.find(favorites)
   end
 

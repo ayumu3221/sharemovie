@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2023_02_24_134649) do
   create_table "list_comments", force: :cascade do |t|
     t.text "comment"
     t.integer "user_id"
-    t.integer "book_id"
+    t.integer "list_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

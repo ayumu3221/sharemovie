@@ -4,11 +4,16 @@ class Public::ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-    @comment = Comment.new
+    @list_comment = ListComment.new
   end
 
   def index
-    @lists = List.all
+    to  = Time.current.at_beginning_of_day
+    from  = (to - 6.day).at_end_of_day
+    @lists = List.all.sort {|a,b| 
+      b.favorites.where(created_at: from...to).size <=> 
+      a.favorites.where(created_at: from...to).size
+    }
     @list = List.new
   end
 

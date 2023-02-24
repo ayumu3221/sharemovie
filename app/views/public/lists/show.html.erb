@@ -16,11 +16,11 @@
           </td>
           <td><%= link_to @list.title, @list %></td>
           <td><%= @list.body %></td>
-          <td class=<%= "favorite-" + @list.id.to_s %> >
+          <td id=<%= "list-" + @list.id.to_s %> >
             <%= render "public/favorites/btn", list: @list %>
           </td>
-          <td class="Comments-counter">
-            <%= render "public/comments/counter", list: @list %>
+          <td class="list-comments-counter">
+            <%= render "public/list_comments/counter", list: @list %>
           </td>
           <% if @list.user == current_user %>
             <td><%= link_to 'Edit', edit_list_path(@list), class: "btn btn-sm btn-success edit_list_#{@list.id}" %></td>
@@ -29,11 +29,11 @@
         </tr>
       </table>
       
-      <div class="Comments-index">
-        <%= render "public/comments/index", list: @list %>
+      <div class="list-comments-index">
+        <%= render "public/list_comments/index", list: @list %>
       </div>
       
-      <%= render "public/comments/form", list: @list, comment: @comment %>
+      <%= render "public/list_comments/form", list: @list, list_comment: @list_comment %>
       
     </div>
   </div>

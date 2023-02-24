@@ -14,7 +14,7 @@
         <td id=<%= "list-" + list.id.to_s %> >
             <%= render "public/favorites/btn", list: list %>
         </td>
-        <td><%= render "public/comments/counter", list: list %></td>
+        <td><%= render "public/list_comments/counter", list: list %></td>
       </tr>
     <% end %>
   </tbody>
