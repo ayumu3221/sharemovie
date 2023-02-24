@@ -1,1 +1,5 @@
-$('.favorite-<%= @favorite.list_id %>').html("<%= j(render 'favorites/btn',  list: @favorite.list ) %>")
+<% if @favorite %>
+$("#list-<%= @favorite.list_id %>").html("<%= j(render 'public/favorites/btn',  list: @favorite.list ) %>")
+<% else %>
+$("#list-<%= @list.id %>").html("<%= j(render 'public/favorites/btn',  list: @list ) %>")
+<% end %>

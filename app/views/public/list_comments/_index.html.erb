@@ -11,7 +11,7 @@
         <td><%= list_comment.comment %></td>
         <td>
           <% if list_comment.user == current_user %>
-            <%= link_to "Destroy", list_book_comment_path(list, list_comment), method: :delete, class: "btn btn-danger pull-right", remote: true %>
+            <%= link_to "Destroy", list__comment_path(list, list_comment), method: :delete, class: "btn btn-danger pull-right", remote: true %>
           <% end %>
         </td>
       </tr>

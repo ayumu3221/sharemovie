@@ -11,7 +11,7 @@
       <tr>
         <td><%= link_to list.title,list, class: "list_#{list.id}" %></td>
         <td><%= list.body %></td>
-        <td class=<%= "favorite-" + list.id.to_s %> >
+        <td id=<%= "list-" + list.id.to_s %> >
             <%= render "public/favorites/btn", list: list %>
         </td>
         <td><%= render "public/comments/counter", list: list %></td>
