@@ -1,12 +1,21 @@
 <div class="container">
   <div class="row">
-    <h4>
-      <%= @user.name%>さんのお気に入り一覧
-    </h4>
-  </div>
-  
-  <% @favorite_lists.each do |list|%>
-    <%= list.title %>
-    <% end %>
-
- </div>
+    <div class="col-xs-6 mx-auto">
+      <h3><%= @user.name%>さんのお気に入り一覧</h3>
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>title</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @favorite_lists.each do |list|%>
+            <tr>
+              <td><%= list.title %></td>
+            <tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>  
+  </div>    
+</div>

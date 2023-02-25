@@ -21,12 +21,12 @@
   <% if current_user != user %>
     <td><%= render "public/relationships/btn", user: user %></td>
   <% else %>
-    <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block edit_user_#{user.id}" do %>
+    <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block edit_user_#{user.id} mb-3" do %>
       <i class="fas fa-user-cog"></i>
     <% end %>
   <% end %>
   
 <% if current_user != user %>
-  <%= link_to 'Begin Chat', chat_path(user.id) %>
+  <%= link_to 'ダイレクトメッセージ', chat_path(user.id) %>
 <% end %> 
 </div>
