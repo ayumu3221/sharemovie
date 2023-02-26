@@ -2,8 +2,6 @@ class Public::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
   
-
-
   def show
     @user = User.find(params[:id])
     @lists = @user.lists
@@ -26,6 +24,7 @@ class Public::UsersController < ApplicationController
     end
   end
   
+   #いいね一覧画面
   def favorites
     @user = User.find(params[:id])
     favorites= Favorite.where(user_id: @user.id).pluck(:list_id)

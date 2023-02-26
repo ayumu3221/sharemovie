@@ -7,6 +7,7 @@ class Public::ListsController < ApplicationController
     @list_comment = ListComment.new
   end
 
+  #過去一週間でいいねされた数
   def index
     to  = Time.current.at_beginning_of_day
     from  = (to - 6.day).at_end_of_day
@@ -50,6 +51,8 @@ class Public::ListsController < ApplicationController
     params.require(:list).permit(:title, :body)
   end
 
+
+  #他人の編集画面に遷移しない
   def ensure_correct_user
     @list = List.find(params[:id])
     unless @list.user == current_user
