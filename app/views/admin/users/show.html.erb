@@ -1,38 +1,41 @@
-<h4 class="table-active text-center px-3">
-  <%= @user.name %>さんの会員詳細
-</h4>
-<table class="table table-borderless">
-  <thead>
-    <tr>
-      <th>
-      	<strong>ユーザーネーム</strong>
-      </th>
-      <th><%= @user.name %></th>
-    </tr>
-    <tr>
-      <th>
-      	<strong>メールアドレス</strong>
-      </th>
-      <th><%= @user.email %></th>
-    </tr>
-    <tr>
-      <th>
-      	<strong>ステータス</strong>
-      </th>
-      <th>
-        <% if @user.status === false %>
-          <strong class="text-success">有効</strong>
-        <% else %>
-          <strong class="text-danger">退会済み</strong>
-        <% end %>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-	<tr>
-	  <% if admin_signed_in? %>
-	    <td><%= link_to "編集", edit_admin_user_path(@user), class: "btn btn-success" %></td>
-	  <% end %>
-	</tr>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row mb-5">
+    <div class="offset-1">
+      <h2 class="my-4 text title-sub-text">
+        <%= @user.name %> 詳細ページ
+      </h2>
+    </div>
+    <div class="col-12">
+      <table class="table table-borderless">
+        <tr>
+          <th class="w-25 text">会員ID</th>
+          <td class="light-text"><%= @user.id %></td>
+        </tr>
+        <tr>
+          <th class="text">氏名</th>
+          <td class="light-text"><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th class="text">メールアドレス</th>
+          <td class="light-text"><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th class="text">会員ステータス</th>
+          <td class="text">
+            <% if @user.status === false %>
+              <span class="text-active">有効</span>	
+            <% else %>
+              <span class="text-invalid">退会済み</span>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th></th>
+          <td class="text">
+            <%= link_to "編集", edit_admin_user_path(@user), class: "btn btn-success" %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

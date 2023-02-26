@@ -1,23 +1,23 @@
-<table class='table'>
+<table class="table">
   <tr>
-	  <th>name</th>
-	  <th><%= user.name %></th>
+    <th>氏名</th>
+    <th><%= user.name %></th>
   </tr>
   <tr>
-	  <th>introduction</th>
-	  <th><%= user.introduction %></th>
+    <th>自己紹介</th>
+    <th><%= user.introduction %></th>
   </tr>
   <tr>
-    <th>follows</th>
+    <th>フォロー</th>
     <th><%= link_to user.followings.count, user_followings_path(user) %></th>
   </tr>
   <tr>
-    <th>followers</th>
+    <th>フォロワー</th>
     <th><%= link_to user.followers.count, user_followers_path(user) %></th>
   </tr>
 </table>
 　
-<div class='row'>
+<div class="row">
   <% if current_user != user %>
     <td><%= render "public/relationships/btn", user: user %></td>
   <% else %>
@@ -25,8 +25,7 @@
       <i class="fas fa-user-cog"></i>
     <% end %>
   <% end %>
-  
 <% if current_user != user %>
-  <%= link_to 'ダイレクトメッセージ', chat_path(user.id) %>
+  <%= link_to "ダイレクトメッセージ", chat_path(user.id), class: "btn btn-primary mb-3" %>
 <% end %> 
 </div>

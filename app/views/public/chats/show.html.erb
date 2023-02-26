@@ -1,8 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-6 mx-auto">
-            <h2>DM <%= @user.name %></h2>
-
+            <h2>ダイレクトメッセージ <%= @user.name %></h2>
             <table class="message table">
               <thead>
                 <tr>
@@ -30,11 +29,10 @@
                 <% end %>
               <% end %>
             </table>
-
             <%= form_with model: @chat do |f| %>
               <%= f.text_field :message %>
               <%= f.hidden_field :room_id %>
-              <%= f.submit "SEND", class:"btn btn-sm btn-success chat-btn" %>
+              <%= f.submit "送信", class: 'btn btn-sm btn-success chat-btn' %>
             <% end %>
         </div>
     </div>

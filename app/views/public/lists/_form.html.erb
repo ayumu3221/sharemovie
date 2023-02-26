@@ -1,13 +1,13 @@
 <%= form_with model:list,local:true do |f| %>
   <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control list_title' %>
+    <%= f.label :"タイトル" %>
+    <%= f.text_field :title, class: "form-control list_title" %>
   </div>
   <div class="form-group">
-    <%= f.label :opinion %>
-    <%= f.text_area :body, class: 'form-control list_body' %>
+    <%= f.label :"一言" %>
+    <%= f.text_area :body, class: "form-control list_body"%>
   </div>
   <div class="form-group">
-    <%= f.submit class: 'btn btn-success' %>
+    <%= f.submit "保存", class: "btn btn-success" %>
   </div>
 <% end %>

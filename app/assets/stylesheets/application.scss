@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+.main-visual {
+  width: 100%; /* 横幅いっぱい */
+  height: 100%; /* 100% */
+  background-image: image-url('ka-ten2.jpg');
+
+  background-position: center; /* 背景画像を中央に配置 */
+}
+

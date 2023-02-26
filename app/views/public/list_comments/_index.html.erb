@@ -2,7 +2,6 @@
   <tbody>
       <% list.list_comments.each do |list_comment| %>
       <tr>
-        
         <td>
           <%= link_to user_path(list_comment.user) do %>
             <%= list_comment.user.name %>
@@ -11,7 +10,7 @@
         <td><%= list_comment.comment %></td>
         <td>
           <% if list_comment.user == current_user %>
-            <%= link_to "Destroy", list_list_comment_path(list, list_comment), method: :delete, class: "btn btn-danger pull-right"%>
+            <%= link_to "削除", list_list_comment_path(list, list_comment), method: :delete, class: "btn btn-sm btn-danger "%>
           <% end %>
         </td>
       </tr>

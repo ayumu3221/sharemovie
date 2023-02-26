@@ -1,45 +1,44 @@
-<h4 class="table-active text-center px-3">
-  <%= @user.name %>さんの会員情報編集
-</h4>
-<%= form_with model:@user, url: admin_user_path(@user), method: :patch do |f| %>
-<table class="table table-borderless">
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <strong>ユーザーネーム</strong>
-      </td>
-      <td><%= f.text_field :name, placeholder: "ユーザーネーム", size: 25, class: "textlines-radius" %></td>
-    </tr>
-    <tr>
-      <td>
-        <strong>メールアドレス</strong>
-      </td>
-      <td><%= f.text_field :email, placeholder: "メールアドレス", size: 25, class: "textlines-radius" %></td>
-    </tr>
-    <tr>
-      <td>
-        <strong>ステータス</strong>
-      </td>
-      <td>
-        <%= f.radio_button :status, "false" %>
-        <%= f.label :status_false, "有効" %>
-      </td>
-      <td>
-        <%= f.radio_button :status, "true" %>
-        <%= f.label :status_true, "退会" %>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<div class="form-group">
-  <%= f.submit '変更を保存', class: "btn btn-success" %>
+<div class="container">
+  <div class="row mb-5">
+    <div class="offset-1">
+      <h2 class="my-4 text title-sub-text">
+        <%= @user.name %> 編集画面
+      </h2>
+    </div>
+    <div class="col-12">
+      <%= form_with model:@user, url: admin_user_path(@user), method: :patch do |f| %>
+        <div class="form-group row text">
+          <%= f.label :name, "氏名", class: "col-form-label col-3 font-weight-bold" %>
+          <div class="col-4 light-text">
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group row text">
+          <%= f.label :email, "メールアドレス", class: "col-form-label col-3 font-weight-bold" %>
+          <div class="col-4 light-text">
+            <%= f.email_field :email, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group row text">
+          <%= f.label :status, "会員ステータス", class: "col-form-label col-3 font-weight-bold" %>
+          <div class="col-8 light-text">
+            <div class="form-check form-check-inline">
+              <%= f.radio_button :status, false, class: "form-check-input" %>
+              <%= f.label :status, "有効", value: false, class: "form-check-label" %>
+            </div>
+            <div class="form-check form-check-inline">
+              <%= f.radio_button :status, true, class: "form-check-input" %>
+              <%= f.label :status, "退会", value: true, class: "form-check-label" %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row mt-2">
+          <div class="col-3"></div>
+          <div class="col-4 text">
+            <%= f.submit "保存", class: "btn btn-success w-50" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-<% end %>
-
